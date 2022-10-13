@@ -7,7 +7,7 @@ DROP TABLE Hostel CASCADE CONSTRAINTS;
 CREATE TABLE Hostel(
 	Hostel_ID NUMBER(3),
 	adress VARCHAR(30),
-	rating NUMBER(2,2),
+	rating NUMBER(4,2),
 	amount_of_floors NUMBER(1),
 	amount_of_rooms NUMBER(2)
 );
