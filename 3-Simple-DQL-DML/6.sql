@@ -53,10 +53,11 @@ SELECT room_id, COUNT(*)
 SELECT amount_of_windows, COUNT(*)
     FROM room
     GROUP BY amount_of_windows
-    HAVING amount_of_windows > 1;
+    HAVING COUNT(*) > 0;
 
 /*
 	AMOUNT_OF_WINDOWS	COUNT(*)
 1	3					1
+2	3					1
 
 */
