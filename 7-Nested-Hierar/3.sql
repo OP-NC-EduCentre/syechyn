@@ -30,11 +30,15 @@ SELECT * FROM hostel;
 	через ієрархічний зв'язок типу «зверху-вниз».
 */
 
-SELECT * 
+SELECT hostel_id,
+        hierarchy,
+        address,
+        rating,
+        LEVEL
     FROM hostel
-    START WITH hostel_id = 1
-    CONNECT BY PRIOR hierarchy = hostel_id
-    ORDER BY LEVEL DESC;
+    START WITH hierarchy IS NULL
+    CONNECT BY PRIOR hostel_id = hierarchy
+    ORDER BY LEVEL;
 
 /*
 	HOSTEL_ID	ADDRESS				RATING	AMOUNT_OF_FLOORS	AMOUNT_OF_ROOMS		HIERARCHY

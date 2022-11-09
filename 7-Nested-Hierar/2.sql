@@ -70,13 +70,11 @@ UPDATE student
 	Видалити гуртожитки, на яких немає посилань у таблиці кімнат.
 */
 
-DELETE FROM (
-            SELECT * FROM hostel
-            WHERE NOT EXISTS (
-                SELECT room.hostel_id
-                    FROM room
-                    WHERE room.hostel_id = hostel.hostel_id )
-            );
+DELETE FROM hostel
+    WHERE NOT EXISTS (
+    SELECT room.hostel_id
+    FROM room
+    WHERE room.hostel_id = hostel.hostel_id );
 
 /*
 	4. Поєднаний INSERT/UPDATE запит – оператор MERGE.
