@@ -9,4 +9,3 @@ SELECT
 FROM objtype, objects
 WHERE objects.object_type_id = objtype.object_type_id
 GROUP BY objtype.name;
-
